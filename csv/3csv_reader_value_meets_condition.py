@@ -12,7 +12,10 @@ with open(input_file, 'r', newline='') as csv_in_file:
 		header = next(filereader)
 		filewriter.writerow(header)
 		for row_list in filereader:
+			#print(row_list[3].strip('$').replace(',', ''))
+			#print(row_list)
 			supplier = str(row_list[0]).strip()
 			cost = str(row_list[3]).strip('$').replace(',', '')
+			print(cost)
 			if supplier == 'Supplier Z' or float(cost) > 600.0:
 				filewriter.writerow(row_list)
